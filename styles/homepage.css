@@ -94,7 +94,7 @@
   border: 4px solid #2b2467;
 }
 
-.featured-game .featured-game-card:hover img {
+.featured-game .featured-game-card:hover img.thumbnail {
   transition: all 0.4s;
   filter: blur(40px);
   width: 181px;
