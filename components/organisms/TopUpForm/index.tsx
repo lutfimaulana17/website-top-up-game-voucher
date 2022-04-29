@@ -1,13 +1,14 @@
 import NominalItem from "./NominalItem";
 import PaymentItem from "./PaymentItem";
 
-export default function TopUpForm() {
+export default function TopUpForm(props) {
+  const { nominals, payments } = props;
   return (
     <form action="./checkout.html" method="POST">
       <div className="pt-md-50 pt-30">
         <div className="">
           <label
-            for="ID"
+            htmlFor="ID"
             className="form-label text-lg fw-medium color-palette-1 mb-10"
           >
             Verify ID
@@ -27,25 +28,16 @@ export default function TopUpForm() {
           Nominal Top Up
         </p>
         <div className="row justify-content-between">
-          <NominalItem
-            _id="123"
-            coinName="Dummy"
-            coinQuantity={20}
-            price={45000}
-          />
-          <NominalItem
-            _id="456"
-            coinName="Dummy"
-            coinQuantity={20}
-            price={45000}
-          />
-          <NominalItem
-            _id="789"
-            coinName="Dummy"
-            coinQuantity={20}
-            price={45000}
-          />
-          <div className="col-lg-4 col-sm-6"></div>
+          {nominals.map((nominal) => (
+            <NominalItem
+              key={nominal._id}
+              _id={nominal._id}
+              coinName={nominal.coinName}
+              coinQuantity={nominal.coinQuantity}
+              price={nominal.price}
+            />
+          ))}
+          <div className="col-lg-4 col-sm-6" />
         </div>
       </div>
       <div className="pb-md-50 pb-20">
@@ -54,15 +46,23 @@ export default function TopUpForm() {
         </p>
         <fieldset id="paymentMethod">
           <div className="row justify-content-between">
-            <PaymentItem bankID="123456" name="BCA" type="Transfer" />
-            <PaymentItem bankID="7890" name="Mandiri" type="Transfer" />
-            <div className="col-lg-4 col-sm-6"></div>
+            {payments.map((payment) =>
+              payment.banks.map((bank) => (
+                <PaymentItem
+                  key={bank._id}
+                  bankID={bank._id}
+                  name={bank.bankName}
+                  type={payment.type}
+                />
+              ))
+            )}
+            <div className="col-lg-4 col-sm-6" />
           </div>
         </fieldset>
       </div>
       <div className="pb-50">
         <label
-          for="bankAccount"
+          htmlFor="bankAccount"
           className="form-label text-lg fw-medium color-palette-1 mb-10"
         >
           Bank Account Name
