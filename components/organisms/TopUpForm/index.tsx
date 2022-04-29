@@ -1,7 +1,13 @@
+import { NominalsTypes, PaymentTypes } from "../../../services/data-types";
 import NominalItem from "./NominalItem";
 import PaymentItem from "./PaymentItem";
 
-export default function TopUpForm(props) {
+interface TopUpFormProps {
+  nominals: NominalsTypes[];
+  payments: PaymentTypes[];
+}
+
+export default function TopUpForm(props: TopUpFormProps) {
   const { nominals, payments } = props;
   return (
     <form action="./checkout.html" method="POST">
@@ -46,16 +52,14 @@ export default function TopUpForm(props) {
         </p>
         <fieldset id="paymentMethod">
           <div className="row justify-content-between">
-            {payments.map((payment) =>
-              payment.banks.map((bank) => (
-                <PaymentItem
-                  key={bank._id}
-                  bankID={bank._id}
-                  name={bank.bankName}
-                  type={payment.type}
-                />
-              ))
-            )}
+            {payments.map((payment) => payment.banks.map((bank) => (
+              <PaymentItem
+                key={bank._id}
+                bankID={bank._id}
+                name={bank.bankName}
+                type={payment.type}
+              />
+            )))}
             <div className="col-lg-4 col-sm-6" />
           </div>
         </fieldset>
