@@ -1,16 +1,31 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import TopUpForm from "../../components/organisms/TopUpForm";
 import TopUpItem from "../../components/organisms/TopUpItem";
 import Navbar from "../../components/organisms/Navbar";
 import Footer from "../../components/organisms/Footer";
+import { getDetailVoucher } from "../../services/player";
 
 export default function Detail() {
   const { query, isReady } = useRouter();
+  const [dataItem, setDataItem] = useState({
+    name: "",
+    thumbnail: "",
+    category: {
+      name: "",
+    },
+  });
+
+  const getVoucherDetailAPI = useCallback(async (id) => {
+    const data = await getDetailVoucher(id);
+    console.log("data :", data);
+    setDataItem(data);
+  }, []);
 
   useEffect(() => {
     if (isReady) {
       console.log("Query is available", query.id);
+      getVoucherDetailAPI(query.id);
     } else {
       console.log("Query not available");
     }
@@ -31,10 +46,10 @@ export default function Detail() {
           </div>
           <div className="row">
             <div className="col-xl-3 col-lg-4 col-md-5 pb-30 pb-md-0 pe-md-25 text-md-start">
-              <TopUpItem type="mobile" />
+              <TopUpItem data={dataItem} type="mobile" />
             </div>
             <div className="col-xl-9 col-lg-8 col-md-7 ps-md-25">
-              <TopUpItem type="desktop" />
+              <TopUpItem data={dataItem} type="desktop" />
               <hr />
               <TopUpForm />
             </div>
