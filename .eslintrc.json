@@ -22,6 +22,7 @@
     "quotes": [2, "double"],
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   }
 }
