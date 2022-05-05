@@ -36,3 +36,16 @@ export interface LoginTypes {
   email: string;
   password: string;
 }
+
+export interface UserTypes {
+  avatar: string;
+  email: string;
+  id: string;
+  name: string;
+  username: string;
+}
+
+export interface JWTPayloadTypes {
+  player: UserTypes;
+  iat: number;
+}
