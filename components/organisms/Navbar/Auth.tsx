@@ -64,29 +64,25 @@ export default function Auth() {
           >
             <li>
               <Link href="/member">
-                <a className="dropdown-item text-lg color-palette-2" href="#">
+                <a className="dropdown-item text-lg color-palette-2">
                   My Profile
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/">
-                <a className="dropdown-item text-lg color-palette-2" href="#">
-                  Wallet
-                </a>
+                <a className="dropdown-item text-lg color-palette-2">Wallet</a>
               </Link>
             </li>
             <li>
               <Link href="/member/edit-profile">
-                <a className="dropdown-item text-lg color-palette-2" href="#">
+                <a className="dropdown-item text-lg color-palette-2">
                   Account Settings
                 </a>
               </Link>
             </li>
             <li onClick={onLogout}>
-              <a className="dropdown-item text-lg color-palette-2" href="#">
-                Log Out
-              </a>
+              <a className="dropdown-item text-lg color-palette-2">Log Out</a>
             </li>
           </ul>
         </div>
