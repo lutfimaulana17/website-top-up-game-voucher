@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import {
   BanksTypes,
   NominalsTypes,
@@ -8,7 +8,6 @@ import {
 } from "../../../services/data-types";
 import NominalItem from "./NominalItem";
 import PaymentItem from "./PaymentItem";
-import "react-toastify/dist/ReactToastify.css";
 
 interface TopUpFormProps {
   nominals: NominalsTypes[];
@@ -143,7 +142,6 @@ export default function TopUpForm(props: TopUpFormProps) {
           Continue
         </button>
       </div>
-      <ToastContainer />
     </form>
   );
 }
