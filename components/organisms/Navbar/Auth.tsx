@@ -1,9 +1,9 @@
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { JWTPayloadTypes, UserTypes } from "../../../services/data-types";
-import { useRouter } from "next/router";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(false);
