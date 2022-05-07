@@ -1,4 +1,6 @@
-export interface InputProps {
+import { InputHTMLAttributes } from "react";
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
@@ -7,7 +9,7 @@ export default function Input(props: InputProps) {
   return (
     <>
       <label
-        for="name"
+        htmlFor="name"
         className="form-label text-lg fw-medium color-palette-1 mb-10"
       >
         {label}

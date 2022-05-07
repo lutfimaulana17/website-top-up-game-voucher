@@ -13,7 +13,7 @@ export default function NominalItem(props: NominalItemProps) {
   return (
     <label
       className="col-lg-4 col-sm-6 ps-md-15 pe-md-15 pt-md-15 pb-md-15 pt-10 pb-10"
-      for={_id}
+      htmlFor={_id}
       onChange={onChange}
     >
       <input

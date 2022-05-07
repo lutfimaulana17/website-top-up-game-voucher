@@ -33,7 +33,13 @@ export default function Auth() {
     Cookies.remove("token");
     router.push("/");
     setIsLogin(false);
-    setUser({});
+    setUser({
+      avatar: "",
+      email: "",
+      id: "",
+      name: "",
+      username: "",
+    });
   };
 
   if (isLogin) {
