@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import TopUpForm from "../../components/organisms/TopUpForm";
 import TopUpItem from "../../components/organisms/TopUpItem";
 import Navbar from "../../components/organisms/Navbar";
@@ -16,6 +17,10 @@ interface DetailProps {
 }
 
 export default function Detail({ dataItem, nominals, payments }: DetailProps) {
+  useEffect(() => {
+    localStorage.setItem("data-item", JSON.stringify(dataItem));
+  }, []);
+
   return (
     <>
       <Navbar />
